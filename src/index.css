@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 40% 10%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 40% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 48 85% 55%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 220 30% 16%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 25% 14%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 155 100% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 48 85% 55%;
+
+    --radius: 1rem;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 6%;
+
+    --success: 155 100% 40%;
+    --success-foreground: 222 47% 6%;
+
+    --danger: 0 72% 51%;
+    --danger-foreground: 210 40% 98%;
+
+    --glass: 220 40% 10%;
+    --glass-border: 220 20% 22%;
+
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 20% 75%;
+    --sidebar-primary: 48 85% 55%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 220 30% 14%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 20% 14%;
+    --sidebar-ring: 48 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-card/60 backdrop-blur-xl border border-glass-border rounded-2xl;
+  }
+
+  .glass-panel-strong {
+    @apply bg-card/80 backdrop-blur-2xl border border-glass-border rounded-2xl;
+  }
+
+  .kpi-card {
+    @apply glass-panel p-5 relative overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_30px_-5px_hsl(var(--primary)/0.15)];
+  }
+
+  .status-live {
+    @apply inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-widest;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full bg-accent animate-pulse;
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .gradient-bg {
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 50%, hsl(var(--accent) / 0.04), transparent),
+      hsl(var(--background));
+  }
+
+  .neon-glow-yellow {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3), 0 0 60px -15px hsl(var(--primary) / 0.1);
+  }
+
+  .neon-glow-green {
+    box-shadow: 0 0 20px -5px hsl(var(--accent) / 0.3), 0 0 60px -15px hsl(var(--accent) / 0.1);
+  }
+
+  .industrial-text {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(48,85%,70%)];
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-[hsl(155,100%,70%)];
+  }
+}
+
+@layer base {
+  :root {
+    /* 🌸 LIGHT MODE - Warm Pink / Yellow */
+    --background: 40 100% 98%;          /* soft warm */
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --border: 40 40% 85%;
+
+    --primary: 340 82% 60%;             /* pink */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 100% 92%;           /* warm yellow */
+    --secondary-foreground: 222 47% 11%;
+
+    --accent: 340 82% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 45 60% 94%;
+    --muted-foreground: 222 20% 30%;
+
+    --danger: 0 84% 60%;
+  }
+
+  .dark {
+    /* 🌑 DARK MODE - Clean Professional */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 14%;
+    --border: 222 20% 20%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 222 30% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --danger: 0 70% 50%;
+  }
+}
+.light-sidebar {
+  background: linear-gradient(
+    to bottom,
+    hsl(40 100% 97%),
+    hsl(340 100% 98%)
+  );
+}
