@@ -1,3 +1,3 @@
-const API_BASE = "http://localhost:8000";
+const API_BASE_URL = "https://ppe-project-be.onrender.com"
 
-export default API_BASE;
+export default API_BASE_URL
