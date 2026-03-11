@@ -29,7 +29,7 @@ export const TopBar = ({ darkMode, toggleTheme }: Props) => {
 
         <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
           <Wifi className="w-3.5 h-3.5 text-accent" />
-          <span>12 Cams</span>
+          <span>04 Cams</span>
         </div>
 
         {/* Premium Toggle */}
@@ -54,7 +54,7 @@ export const TopBar = ({ darkMode, toggleTheme }: Props) => {
 
         {/* Avatar */}
         <div className="w-8 h-8 rounded-xl bg-primary/20 flex items-center justify-center">
-          <span className="text-xs font-bold text-primary">AD</span>
+          <span className="text-xs font-bold text-primary">K</span>
         </div>
       </div>
     </header>

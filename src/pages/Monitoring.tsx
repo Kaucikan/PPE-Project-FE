@@ -8,34 +8,37 @@ interface Camera {
   type: string;
   deviceId?: string;
   nightVision?: boolean;
+  mode: "ppe" | "face";
 }
-
 const cameras: Camera[] = [
   {
     id: 1,
     name: "Main Camera 1",
     type: "webcam",
-    deviceId:
-      "b7c59d46b4a1b15d84182ae8261bd2dc63a825dc96705e66e544af39c247c114",
+    deviceId: "b7c59d46b4a1b15d84182ae8261bd2dc63a825dc96705e66e544af39c247c114",
+    mode: "ppe",
   },
   {
     id: 2,
     name: "Night Shift Camera",
     type: "dummy",
     nightVision: true,
+    mode: "ppe",
   },
   {
     id: 3,
     name: "Helmet Zone",
     type: "dummy",
+    mode: "ppe",
   },
   {
     id: 4,
     name: "Gate Camera",
-    type: "phone",
-    // Night vision enabled only here
+    type: "dummy",
+    mode: "face",
   },
 ];
+
 
 export default function Monitoring() {
   const [fullscreenCam, setFullscreenCam] = useState<number | null>(null);

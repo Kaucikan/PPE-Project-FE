@@ -49,16 +49,24 @@ export default function CameraFeed({
   }, []);
 
   /* ---------------- START ---------------- */
-  const start = () => {
-    setLoading(true);
-    setStreamUrl(`${API}/video?ts=${Date.now()}`);
+const start = () => {
+  setLoading(true);
 
-    setTimeout(() => {
-      setIsStreaming(true);
-      setLoading(false);
-    }, 400);
-  };
+  let url = "";
 
+  if (camera.mode === "face") {
+    url = `${API}/video?mode=face&ts=${Date.now()}`;
+  } else {
+    url = `${API}/video?mode=ppe&ts=${Date.now()}`;
+  }
+
+  setStreamUrl(url);
+
+  setTimeout(() => {
+    setIsStreaming(true);
+    setLoading(false);
+  }, 400);
+};
   /* ---------------- STOP ---------------- */
   const stop = async () => {
     await fetch(`${API}/stop-stream`).catch(() => {});
@@ -88,11 +96,14 @@ export default function CameraFeed({
               nightMode ? "grayscale contrast-125 brightness-90" : ""
             }`}
           >
-            <img
-              src={streamUrl}
-              className="w-full h-full object-cover"
-              onError={() => stop()}
-            />
+            {streamUrl && (
+              <img
+                key={streamUrl}
+                src={streamUrl}
+                className="w-full h-full object-cover"
+                onError={() => stop()}
+              />
+            )}
           </div>
         )}
 

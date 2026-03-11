@@ -57,7 +57,9 @@ const Alerts = () => {
           setModalImage(data.image_url);
 
           if (soundEnabled) {
-            const audio = new Audio("/alarm.mp3");
+            const audio = new Audio(
+              "fe/public/alarm.wav",
+            );
             audio.play().catch(() => {});
           }
         }
